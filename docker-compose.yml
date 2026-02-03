@@ -25,6 +25,7 @@ services:
       - mysql
     volumes:
       - ./backend:/app
+      - /app/node_modules
 
   frontend:
     build: ./frontend

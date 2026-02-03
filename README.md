@@ -15,7 +15,7 @@ Debe de estar instalado y abierto:
 ### 1️. Despues de Clonar el repositorio, ve a la carpeta
 
 ```bash
-cd prueba-fullstack
+cd pruebaTecnicaVue
 ```
 
 ---

@@ -1,0 +1,29 @@
+/* Estilos globales compartidos entre vistas */
+/* Reinicios y reglas comunes */
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Tipografía por defecto del proyecto */
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Ajustes generales para evitar overflow en wrappers de login/register */
+.login-wrapper {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Pequeñas adaptaciones responsivas globales */
+@media (max-width: 520px) {
+  .login-form {
+    padding: 20px;
+  }
+}

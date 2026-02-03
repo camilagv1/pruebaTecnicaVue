@@ -1,0 +1,168 @@
+/* Estilos para la vista Login */
+/* CONTENEDOR */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  background: #020617;
+}
+
+/* LADO IZQUIERDO */
+.login-left {
+  flex: 0 0 50%;
+  background: #020617; /* aquí irá tu imagen */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.7);
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.overlay h1 {
+  color: #fff;
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.overlay p {
+  color: #cbd5f5;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* LADO DERECHO */
+.login-right {
+  flex: 0 0 50%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 520px;
+  padding: 32px;
+  position: relative;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+/* Campos (inputs) */
+.login-form input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 56px;
+}
+
+
+
+/* Botón */
+button {
+  width: 100%;
+  padding: 14px;
+  background: #06b6d4;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0891b2;
+}
+
+/* Registro */
+.signup {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup a {
+  color: #06b6d4;
+  text-decoration: none;
+}
+
+/* Error */
+.error {
+  margin-top: 14px;
+  text-align: center;
+  color: #ef4444;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    width: 100%;
+  }
+}
+
+/* Inputs: mismo tamaño visual para correo y contraseña */
+.login-form input,
+.password-field input {
+  height: 48px;
+  box-sizing: border-box;
+}
+
+/* Botón ojo dentro del campo de contraseña: específico para evitar sobreescritura */
+button.eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #111827;
+  cursor: pointer;
+  z-index: 3;
+}
+
+button.eye svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Estilos para el icono de PrimeIcons dentro del botón ojo */
+button.eye {
+  color: #374151 !important;
+  font-size: 18px;
+  top: calc(50% - 9px);
+}
+button.eye .pi {
+  color: #374151;
+  font-size: 18px;
+}

@@ -24,12 +24,26 @@ app.get("/index", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-sequelize
-  .authenticate()
-  .then(() => sequelize.sync())
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Servidor corriendo en puerto ${PORT}`);
-    });
-  })
-  .catch((err) => console.error("DB error:", err));
+// Retry connection to database with exponential backoff
+const connectWithRetry = async (retries = 10, delay = 3000) => {
+  for (let i = 0; i < retries; i++) {
+    try {
+      await sequelize.authenticate();
+      console.log("Conexión a la base de datos establecida.");
+      await sequelize.sync();
+      app.listen(PORT, () => {
+        console.log(`Servidor corriendo en puerto ${PORT}`);
+      });
+      return;
+    } catch (err) {
+      console.log(`Intento ${i + 1}/${retries} - Esperando a MySQL...`);
+      if (i === retries - 1) {
+        console.error("DB error:", err);
+        process.exit(1);
+      }
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+};
+
+connectWithRetry();
